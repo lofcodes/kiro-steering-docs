@@ -1,13 +1,17 @@
 # Zod based schema interfaces best practices.
 
-The below are a set of practices and standard to apply when producing zod schemas and equivalent input and output types.
-Input types typically have optional default properties as they have been defaulted with zod.
-Output types expect defaulted properties as non optional values when the whole configuration type is being loaded.
-Input types are utilised to provide an interface to a building block with intellisense support.
+The below are a set of practices and standard to apply when creating building blocks which use zod schemas and input and output interface types.
+
+## Why?
+
+To create easy-use, configurable and portable and re-usable complex building blocks (think CDK L3's but often with additional complexity regarding multi-account, multi-region complexity). These are useful in cases of organization management, infrastructure composability with ease, and also building new infra at pace.
+
+## About schemas and interfaces
+
+* Input types typically have optional default properties as they have been defaulted with zod.
+* Output types expect defaulted properties as non optional values when the whole configuration type is being loaded.
+* Input types are utilised to provide an interface to a building block with intellisense support.
 Output types are loaded prior to configuring a building block with both provided and defaulted values
-
-You're working with a TypeScript project that includes a schema.ts file containing Zod schemas.
-
 
 ## The basics
 
@@ -15,9 +19,9 @@ You're working with a TypeScript project that includes a schema.ts file containi
 * Interface types are generated from zod schemas and subsequent types reside in type.ts, based on the following rules:
 * Generated interfaces and interface properties have TSDoc comments.
 
-## Conversion
+## How to convert
 
-Conversion Target: For every Zod schema in schema.ts with the word schema in its name, generate two TypeScript interfaces:
+For every Zod schema in schema.ts with the word schema in its name, generate two TypeScript interfaces:
 
 1.
 Name: XSchemaInput
